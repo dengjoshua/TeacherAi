@@ -13,7 +13,8 @@ import axios from "axios";
 import { create } from "apisauce";
 import Screen from "./common/Screen";
 import colors from "../colors";
-const baseURL = "https://4a09-41-202-236-100.ngrok-free.app";
+import Photo from "./takePhoto";
+const baseURL = "https://9e7d-41-202-236-102.ngrok-free.app";
 
 const apiClient = create({
   baseURL,
@@ -59,7 +60,7 @@ const Explainer = ({ navigation }) => {
       <FlatList
         style={{ paddingHorizontal: 20 }}
         data={data}
-        inverted={true}
+        inverted={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View>
@@ -70,16 +71,19 @@ const Explainer = ({ navigation }) => {
           </View>
         )}
       />
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Ask your question...."
-          value={question}
-          onChangeText={(text) => setQuestion(text)}
-        />
-        <TouchableOpacity style={styles.sendButton} onPress={askQuestion}>
-          <Icon name="send" size={30} color="grey" />
-        </TouchableOpacity>
+      <View>
+        <Photo />
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Ask your question...."
+            value={question}
+            onChangeText={(text) => setQuestion(text)}
+          />
+          <TouchableOpacity style={styles.sendButton} onPress={askQuestion}>
+            <Icon name="send" size={30} color="grey" />
+          </TouchableOpacity>
+        </View>
       </View>
     </Screen>
   );

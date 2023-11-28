@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import AppTextInput from "./common/AppTextInput";
 import colors from "../colors";
 
+const baseURL = "https://9e7d-41-202-236-102.ngrok-free.app";
+
 const Register = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
